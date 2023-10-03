@@ -1,12 +1,12 @@
 import express from "express";
+import chats from "./data/data.js";
+import cors from "cors";
 
 const app = express();
+app.use(cors());
 
-app.get("get", (req, res) => {
-  res
-    .status(200)
-    .send("Welcome to novaglam server... Check docs for more")
-    .end();
+app.get("/", (req, res) => {
+  res.status(200).json(chats);
 });
 
 app.listen(5000, () => {
