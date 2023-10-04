@@ -10,5 +10,12 @@ export const searchUser = async (req, res) => {
           ],
         }
       : {};
-  } catch (err) {}
+
+    const users = await User.find(searchKeyword).find({
+      _id: { $ne: req.user._id },
+    });
+    res.send(users);
+  } catch (err) {
+    res.status(500).json({ error: err });
+  }
 };

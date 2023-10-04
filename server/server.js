@@ -5,8 +5,9 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 import dbConnection from "./config/dbConnection.js";
-import authRoutes from "./routes/auth.js";
-import userRoutes from "./routes/user.js";
+import authRoutes from "./routes/authRoute.js";
+import userRoutes from "./routes/userRoute.js";
+import chatRoutes from "./routes/chatRoute.js";
 
 const app = express();
 
@@ -23,6 +24,7 @@ app.use("/assets", express.static(path.join(__dirname, "public/assets")));
 /* ROUTES */
 app.use("/auth", authRoutes);
 app.use("/api/user", userRoutes);
+app.use("/api/chat", chatRoutes);
 
 /* MONGOOSE CONNECTION AND SERVER */
 const PORT = process.env.PORT || 5400;
