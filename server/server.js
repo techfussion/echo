@@ -8,6 +8,7 @@ import dbConnection from "./config/dbConnection.js";
 import authRoutes from "./routes/authRoute.js";
 import userRoutes from "./routes/userRoute.js";
 import chatRoutes from "./routes/chatRoute.js";
+import messageRoutes from "./routes/messageRoute.js";
 
 const app = express();
 
@@ -25,6 +26,7 @@ app.use("/assets", express.static(path.join(__dirname, "public/assets")));
 app.use("/auth", authRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/chat", chatRoutes);
+app.use("/api/message", messageRoutes);
 
 /* MONGOOSE CONNECTION AND SERVER */
 const PORT = process.env.PORT || 5400;

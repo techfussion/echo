@@ -21,7 +21,7 @@ export const accessChat = async (req, res) => {
 
   chatExist = await User.populate(chatExist, {
     path: "latestMessage.sender",
-    select: "name pic email",
+    select: "name picture email",
   });
 
   if (chatExist.length > 0) {
@@ -59,7 +59,7 @@ export const fetchChats = async (req, res) => {
       .then(async (results) => {
         results = await User.populate(results, {
           path: "latestMessage.sender",
-          select: "name pic email",
+          select: "name picture email",
         });
 
         res.status(200).send(results);
