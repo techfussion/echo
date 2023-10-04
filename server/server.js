@@ -1,14 +1,30 @@
 import express from "express";
-import chats from "./data/data.js";
 import cors from "cors";
+import dotenv from "dotenv";
+import path from "path";
+import { fileURLToPath } from "url";
+
+import dbConnection from "./config/dbConnection.js";
+import authRoutes from "./routes/auth.js";
+import userRoutes from "./routes/user.js";
 
 const app = express();
+
+/* CONFIGURATIONS */
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+dotenv.config();
+
+app.use(express.json());
 app.use(cors());
+app.use("/assets", express.static(path.join(__dirname, "public/assets")));
 
-app.get("/", (req, res) => {
-  res.status(200).json(chats);
-});
+/* ROUTES */
+app.use("/auth", authRoutes);
+app.use("/api/user", userRoutes);
 
-app.listen(5000, () => {
-  console.log("App listening on port 5000....");
-});
+/* MONGOOSE CONNECTION AND SERVER */
+const PORT = process.env.PORT || 5400;
+
+dbConnection(PORT);

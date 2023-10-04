@@ -14,7 +14,7 @@ const userSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    picPath: {
+    picture: {
       type: String,
       required: true,
       default: "none",
