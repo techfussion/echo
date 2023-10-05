@@ -1,8 +1,8 @@
 import express from "express";
-import { searchUser } from "../controllers/userController";
-import verifyToken from "../middleware/verifyToken";
+import { searchUser } from "../controllers/userController.js";
+import verifyToken from "../middleware/verifyToken.js";
 
-router = express.Router();
+const router = express.Router();
 
 router.get("/", verifyToken, searchUser);
 
