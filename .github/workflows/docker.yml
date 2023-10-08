@@ -16,6 +16,7 @@ jobs:
         with:
           image: rajmumin/echo-server
           registry: docker.io
+          tag: latest
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
       
