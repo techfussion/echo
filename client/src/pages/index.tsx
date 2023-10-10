@@ -30,7 +30,7 @@ export default function Home() {
           {/* className={`${styles.main} ${inter.className}`}> */}
           <Box bg="white" w="100%" borderRadius="md" p="10">
             <Tabs variant="enclosed">
-              <TabList>
+              <TabList mb="30">
                 <Tab width="50%">Login</Tab>
                 <Tab width="50%">Sign Up</Tab>
               </TabList>

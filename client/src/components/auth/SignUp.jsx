@@ -20,7 +20,7 @@ const SignUp = () => {
     setShow(!show);
   };
 
-  const submitHandler = () => {};
+  const submitHandler = (e) => {};
 
   return (
     <VStack spacing="10px">
